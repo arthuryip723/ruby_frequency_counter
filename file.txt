@@ -1,7 +1,1 @@
-Donald Trump has a new target: "Crooked polls."
-With Hillary Clinton extending her lead nationwide and in key battleground states, Trump is toying with what might be called "poll denialism," giving his supporters license to dismiss the discouraging data.
-"Even the polls are crooked," he said at a Monday night rally, expressing disbelief that he is losing to Clinton in Pennsylvania. "Look, we're in a rigged system."
-Trump has only topped Clinton in one scientifically conducted poll in Pennsylvania since it became clear he would be the GOP's nominee back in April, while Clinton has been in the lead in 18 of them. In the most recent polls, Clinton holds a double-digit lead there.
-On Tuesday when Bill O'Reilly told him that "you're behind with women," Trump responded, "I'm not sure I believe it. I'm not sure I believe it."
-Nearly every national poll finds Clinton well ahead among women, and she holds a 17-point lead among women in the most recent national polling on the race from NBC and the Wall Street Journal.
-At a rally Tuesday night, Trump told fans, "The polls are pretty even in Florida. Don't let me down!"
+Given an arbitrary text document written in English, write a program that will generate a concordance, i.e. an alphabetical list of all word occurrences, labeled with word frequencies. Bonus: label each word with the sentence numbers in which each occurrence appeared.
