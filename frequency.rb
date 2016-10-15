@@ -14,7 +14,7 @@ def parse_file(file_name='file.txt')
   # count sentence from 1
   sentence_counter = 1
   content.split.each do |word|
-    # take out some punctuations from the word
+    # take out some marks from the word
     word = word.gsub(/[",:;]/,'').downcase
 
     # see if it is the end of a sentence
