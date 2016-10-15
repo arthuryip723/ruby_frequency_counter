@@ -1,5 +1,10 @@
 def parse_file(file_name='file.txt')
-  string = File.open(file_name, 'rb') { |file| file.read }
+  begin
+    string = File.open(file_name, 'rb') { |file| file.read }
+  rescue
+    puts "File '#{file_name}' doesn't exists."
+    return
+  end
 
   stats = Hash.new{ |hash, key| hash[key] = {count: 0, sentences: []}}
 
