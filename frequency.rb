@@ -16,8 +16,9 @@ def parse_file(file_name='file.txt')
   string.split.each do |word|
     # take out some punctuations from the word
     word = word.gsub(/[",:;]/,'').downcase
-    sentence_end = false
+    
     # see if it is the end of a sentence
+    sentence_end = false
     if (word =~ /[.?!]$/) && !latin_abbreviations.include?(word)
       word = word[0...-1]
       sentence_end = true
