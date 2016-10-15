@@ -1,6 +1,6 @@
 def parse_file(file_name='file.txt')
   begin
-    string = File.open(file_name, 'rb') { |file| file.read }
+    content = File.open(file_name, 'rb') { |file| file.read }
   rescue
     puts "File '#{file_name}' doesn't exists or has other errors."
     return
@@ -13,7 +13,7 @@ def parse_file(file_name='file.txt')
 
   # count sentence from 1
   sentence_counter = 1
-  string.split.each do |word|
+  content.split.each do |word|
     # take out some punctuations from the word
     word = word.gsub(/[",:;]/,'').downcase
 
