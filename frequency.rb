@@ -10,7 +10,6 @@ def parse_file(file_name='file.txt')
 
   # we need to extend this list to include more latin abbreviations in reality.
   latin_abbreviations = ['e.g.', 'i.e.', 'etc.']
-  ending_punctuations = '.?!'.split('')
 
   # count sentence from 1
   sentence_counter = 1
@@ -19,7 +18,7 @@ def parse_file(file_name='file.txt')
     word = word.gsub(/[",:;]/,'').downcase
     sentence_end = false
     # see if it is the end of a sentence
-    if (ending_punctuations.include?(word[-1])) && !latin_abbreviations.include?(word)
+    if (word =~ /[.?!]$/) && !latin_abbreviations.include?(word)
       word = word[0...-1]
       sentence_end = true
     end
