@@ -19,8 +19,8 @@ def parse_file(file_name='file.txt')
 
     # see if it is the end of a sentence
     sentence_end = false
-    if (word =~ /[.?!]$/) && !latin_abbreviations.include?(word)
-      word = word[0..-2]
+    if (word_end_idx = (word =~ /[.?!]$/)) && !latin_abbreviations.include?(word)
+      word = word[0...word_end_idx]
       sentence_end = true
     end
 
