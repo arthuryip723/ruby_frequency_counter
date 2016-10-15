@@ -24,10 +24,10 @@ def parse_file(file_name='file.txt')
     sentence_counter += 1 if sentence_end
   end
 
-  stats.sort.to_h.each_with_index do |(k, v), i|
+  stats.sort.to_h.each_with_index do |(word, stat), i|
     char_idx = (i % 26 + 97).chr * ((i / 26) + 1)
-    tabs = k.length >= 8 ? "\t" : "\t\t"
-    puts "#{char_idx}.\t#{k}#{tabs}{#{v[:count]}: #{v[:sentences].join(', ')}}"
+    tabs = word.length >= 8 ? "\t" : "\t\t"
+    puts "#{char_idx}.\t#{word}#{tabs}{#{stat[:count]}: #{stat[:sentences].join(', ')}}"
   end
 end
 
