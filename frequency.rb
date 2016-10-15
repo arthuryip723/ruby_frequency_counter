@@ -8,8 +8,8 @@ def parse_file(file_name='file.txt')
 
   stats = Hash.new{ |hash, key| hash[key] = {count: 0, sentences: []}}
 
-  # we need to extend this list to include more latin abbreviations in reality.
-  latin_abbreviations = ['e.g.', 'i.e.', 'etc.']
+  # we need to extend this list to include more abbreviations in reality.
+  abbreviations = ['e.g.', 'i.e.', 'etc.']
 
   # count sentence from 1
   sentence_counter = 1
@@ -19,7 +19,7 @@ def parse_file(file_name='file.txt')
 
     # see if it is the end of a sentence
     sentence_end = false
-    if (word_end_idx = (word =~ /[.?!]$/)) && !latin_abbreviations.include?(word)
+    if (word_end_idx = (word =~ /[.?!]$/)) && !abbreviations.include?(word)
       word = word[0...word_end_idx]
       sentence_end = true
     end
