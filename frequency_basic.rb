@@ -14,8 +14,8 @@ def parse_file(file_name='file.txt')
   # count sentence from 1
   sentence_counter = 1
   content.split.each do |word|
-    # take out some marks from the word
-    word = word.gsub(/[",:;]/,'').downcase
+    # take out some marks from the word that we don't care about and downcase the word
+    word = word.gsub(/[",:;()]/, '').downcase
 
     # see if it is the end of a sentence
     sentence_end = false
@@ -24,11 +24,14 @@ def parse_file(file_name='file.txt')
       sentence_end = true
     end
 
+    # add to the stats
     stats[word][:count] += 1
     stats[word][:sentences] << sentence_counter
+
     sentence_counter += 1 if sentence_end
   end
 
+  # print result
   stats.sort.to_h.each_with_index do |(word, stat), i|
     char_idx = (i % 26 + 97).chr * ((i / 26) + 1)
     tabs = word.length >= 8 ? "\t" : "\t\t"

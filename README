@@ -1,0 +1,23 @@
+1) For the basic version, simple run the program by 'ruby frequency_basic.rb' or specify the filename by 'ruby frequency_basic.rb filename.txt'. The running of the advanced version is the same, but the system should have the gems, 'rails' and 'verbs', installed, which can be done by 'gem install rails verbs'.
+
+2) I spent 1 hour to finish the basic version, frequency_basic.rb, which yields the same result as the given result in the question. I spent another 2 hours on the improvements, including investigation and implementation. The details of the improvements are listed in 3).
+
+3)
+
+In the advanced version, I implemented the sentence boundary detection using an approach from the following wikipedia page.
+https://en.wikipedia.org/wiki/Sentence_boundary_disambiguation
+The standard 'vanilla' approach to locate the end of a sentence:[clarification needed]
+(a) If it's a period, it ends a sentence.
+(b) If the preceding token is in the hand-compiled list of abbreviations, then it doesn't end a sentence.
+(c) If the next token is capitalized, then it ends a sentence.
+
+Other edge cases the advanced version takes care of:
+i) Singular and plural forms are regarded just as singular form. This is achieved with the help of Rails API's method String.singularize.
+ii) Partly successful implementation of merging different forms a verb into a single entry in the result, e.g. merging "write", "writing", "writes", "wrote", "written" into one entry. The deficiency of this feature is discussed below.
+iii) Situations where e.g. "teacher's" should be regarded as "teacher".
+iv) Situations where e.g. "teachers'" should be regarded as "teacher".
+
+Deficiencies:
+i) Verb froms. I tried to merge different forms of a same verb into a single entry in the result, e.g. "write", "writes", "writing", "wrote", and "written" are under a single entry "write". But this may not be very successful, as the ruby germ, verbs, can only convert simple form to other forms, but not the other way. So if the simple form of a verb exists in the text, the program can merge all forms of it into a single entry. But when the simple form doesn't exists, it can not do that.
+ii) Abbreviation list for determining sentence boundary(referring to point (b) mentioned above). The list is far form exhaustive, we should try to include as many as possible abbreviations ending with a period. for example "n.b.", "A.M." "U.S." to make the sentence boundary detection more valid.
+iii) Another interesting point. In the sample text from the question, "label" and "labeled" are from the same verb. But the verbs gem think the past tense of "label" should be "labelled" with two l's. Thus the program failed to merge the two words into one entry.
