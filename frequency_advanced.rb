@@ -2,7 +2,7 @@ require 'active_support/core_ext/string/inflections'
 require 'verbs'
 
 # we want to make "teacher's" become "teacher", but we don't want "he's" become "he".
-PRONOUNS = ["he's", "she's", "it's"]
+PRONOUNS = %w(he's she's it's)
 
 def parse_file(file_name='file.txt')
   begin
@@ -83,7 +83,7 @@ end
 # I translated (c) into: if the next token starts with a lower case letter, it doesn't end a sentence.
 
 # this list needs to be extended in reality.
-ABBREVIATIONS = ['e.g.', 'i.e.', 'etc.']
+ABBREVIATIONS = %w(e.g. i.e. etc.)
 
 def is_sentence_end?(word, words, current_index)
   # if it doesn't end with .?!

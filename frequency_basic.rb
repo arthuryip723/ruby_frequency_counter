@@ -1,5 +1,5 @@
 # we need to extend this list to include more abbreviations in reality.
-ABBREVIATIONS = ['e.g.', 'i.e.', 'etc.']
+ABBREVIATIONS = %w(e.g. i.e. etc.)
 
 def parse_file(file_name='file.txt')
   begin
